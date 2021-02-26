@@ -28,4 +28,78 @@ public class SingleLinkedList {
             temp = temp.next;
         }
     }
+
+    public void addByOrder(HeroNode heroNode){
+    HeroNode temp = head;
+    boolean flag = false;
+    while (true){
+        if (temp.next == null){
+            break;
+        }
+        if (temp.next.no > heroNode.no){
+            break;
+        }else if(temp.next.no ==heroNode.no){
+            flag = true;
+            break;
+        }
+        temp = temp.next;
+    }
+        if(flag){
+            System.out.println("准备插入的英雄编号"+heroNode.no+"已经存在");
+        }else {
+            //插入链表中
+            heroNode.next = temp.next;
+            temp.next =heroNode;
+        }
+    }
+
+    //修改节点的信息
+    public void update(HeroNode newHeroNode){
+        if (head.next == null){
+            System.out.println("链表为空");
+        }
+        HeroNode temp = head.next;
+        boolean flag = false;
+        while (true){
+            if (temp == null){
+                break;
+            }
+            if (temp.no == newHeroNode.no){
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+
+        if (flag){
+            temp.name = newHeroNode.name;
+            temp.nickName = newHeroNode.nickName;
+        }else {
+            System.out.println("没有找到"+newHeroNode.no+"的节点");
+        }
+    }
+
+    //删除节点
+    public void delete(int no){
+        HeroNode temp = head;
+        boolean flag = false;
+        while (true){
+            if (temp.next == null){
+                break;
+            }
+            if(temp.next.no == no){
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        if (flag){
+            temp.next = temp.next.next;
+        }else {
+            System.out.println("要删除的"+no+"节点不存在");
+        }
+
+    }
+
+
 }
