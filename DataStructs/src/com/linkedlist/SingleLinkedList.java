@@ -3,6 +3,10 @@ package com.linkedlist;
 public class SingleLinkedList {
     private HeroNode head = new HeroNode(0,"","");
 
+    public HeroNode getHead() {
+        return head;
+    }
+
     public void add(HeroNode heroNode){
         HeroNode temp = head;
         while (true){
@@ -98,7 +102,34 @@ public class SingleLinkedList {
         }else {
             System.out.println("要删除的"+no+"节点不存在");
         }
-
+    }
+    //查找节点个数
+    public static int getLength(HeroNode head){
+        if(head.next == null){
+            return 0;
+        }
+        int length = 0;
+        HeroNode cur = head.next;
+        while (cur != null){
+            length++;
+            cur = cur.next;
+        }
+        return length;
+    }
+    //查找单链表倒数第k个节点
+    public static HeroNode findLastIndexNode(HeroNode head,int index){
+        if (head.next == null){
+            return null;
+        }
+        int size = getLength(head);
+        if(index < 0 || index > size){
+            return null;
+        }
+        HeroNode cur = head.next; //3-1=2
+        for (int i = 0; i < size - index; i++) {
+            cur = cur.next;
+        }
+        return cur;
     }
 
 

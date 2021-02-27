@@ -1,5 +1,8 @@
 package com.linkedlist;
 
+import static com.linkedlist.SingleLinkedList.findLastIndexNode;
+import static com.linkedlist.SingleLinkedList.getLength;
+
 public class SingleLinkedListTest {
     public static void main(String[] args) {
         //先创建节点
@@ -30,5 +33,14 @@ public class SingleLinkedListTest {
         System.out.println("删除后的列表");
         singleLinkedList.delete(1);
         singleLinkedList.list();
+
+        //测试一下，单链表有效的节点个数
+        System.out.println("有效节点个数"+getLength(singleLinkedList.getHead()));
+
+        //查找单链表中的倒数第 k 个结点
+        System.out.println("查找单链表中的倒数第 k 个结点");
+        HeroNode heroNode1 = findLastIndexNode(singleLinkedList.getHead(),1);
+        System.out.println(heroNode1);
+
     }
 }
