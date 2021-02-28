@@ -1,4 +1,6 @@
-package com.linkedlist;
+package com.linkedlist.SingleLinkedList;
+
+import java.util.Stack;
 
 public class SingleLinkedList {
     private HeroNode head = new HeroNode(0,"","");
@@ -130,6 +132,41 @@ public class SingleLinkedList {
             cur = cur.next;
         }
         return cur;
+    }
+
+    //将单链表反转
+    public static void reverseList(HeroNode head){
+        if(head.next == null || head.next.next == null){
+            return;
+        }
+
+        HeroNode cur = head.next;
+        HeroNode next = null;
+        HeroNode reverseHead = new HeroNode(0,"","");
+        while (cur != null){
+            next = cur.next;
+            cur.next = reverseHead.next;
+            reverseHead.next = cur;
+            cur = next;
+        }
+        head.next = reverseHead.next;
+    }
+
+    //单链表的逆序打印
+    public static void reversePrint(HeroNode head){
+        if (head.next == null){
+            return;
+        }
+        Stack<HeroNode> stack = new Stack<HeroNode>();
+        HeroNode cur = head.next;
+        while (cur != null){
+            stack.push(cur);
+            cur = cur.next;
+        }
+        while (stack.size() > 0){
+            System.out.println(stack.pop());
+        }
+
     }
 
 

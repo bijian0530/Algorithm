@@ -1,4 +1,4 @@
-package com.linkedlist;
+package com.linkedlist.SingleLinkedList;
 
 public class HeroNode {
     public int no;

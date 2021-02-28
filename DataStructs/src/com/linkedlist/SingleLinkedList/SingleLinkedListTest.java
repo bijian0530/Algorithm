@@ -1,7 +1,6 @@
-package com.linkedlist;
+package com.linkedlist.SingleLinkedList;
 
-import static com.linkedlist.SingleLinkedList.findLastIndexNode;
-import static com.linkedlist.SingleLinkedList.getLength;
+import static com.linkedlist.SingleLinkedList.SingleLinkedList.*;
 
 public class SingleLinkedListTest {
     public static void main(String[] args) {
@@ -13,16 +12,27 @@ public class SingleLinkedListTest {
 
         //创建要给链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-//        singleLinkedList.add(hero1);
-//        singleLinkedList.add(hero4);
-//        singleLinkedList.add(hero3);
-//        singleLinkedList.add(hero2);
+        singleLinkedList.add(hero1);
+        singleLinkedList.add(hero4);
+        singleLinkedList.add(hero3);
+        singleLinkedList.add(hero2);
 
         //加入按照编号顺序
-        singleLinkedList.addByOrder(hero1);
-        singleLinkedList.addByOrder(hero4);
-        singleLinkedList.addByOrder(hero3);
-        singleLinkedList.addByOrder(hero2);
+//        singleLinkedList.addByOrder(hero1);
+//        singleLinkedList.addByOrder(hero4);
+//        singleLinkedList.addByOrder(hero3);
+//        singleLinkedList.addByOrder(hero2);
+
+        //   //单链表的逆序打印
+        System.out.println("单链表的逆序打印");
+        reversePrint(singleLinkedList.getHead());
+
+
+        System.out.println("将单向链表反转");
+
+        // 将单链表反转
+        reverseList(singleLinkedList.getHead());
+        singleLinkedList.list();
 
         HeroNode newHeroNode = new HeroNode(1, "songjiang", "xiaoyu");
 
@@ -41,6 +51,7 @@ public class SingleLinkedListTest {
         System.out.println("查找单链表中的倒数第 k 个结点");
         HeroNode heroNode1 = findLastIndexNode(singleLinkedList.getHead(),1);
         System.out.println(heroNode1);
+
 
     }
 }
