@@ -1,6 +1,6 @@
 package com.linkedlist.DoubleLinkedList;
 
-class HeroNode2 {
+public class HeroNode2 {
     private int no;
     private String name;
     private String stickName;
@@ -9,6 +9,7 @@ class HeroNode2 {
 
     public HeroNode2() {
     }
+
 
     @Override
     public String toString() {

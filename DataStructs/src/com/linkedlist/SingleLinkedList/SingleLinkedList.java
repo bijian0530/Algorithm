@@ -141,13 +141,13 @@ public class SingleLinkedList {
         }
 
         HeroNode cur = head.next;
-        HeroNode next = null;
+        HeroNode nextNode = null;
         HeroNode reverseHead = new HeroNode(0,"","");
         while (cur != null){
-            next = cur.next;
+            nextNode = cur.next;
             cur.next = reverseHead.next;
             reverseHead.next = cur;
-            cur = next;
+            cur = nextNode;
         }
         head.next = reverseHead.next;
     }

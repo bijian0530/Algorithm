@@ -25,6 +25,7 @@ public class CircleSingleList {
         }
     }
 
+
     //遍历当前环形链表
     public void showBoy(){
         if (first == null){
@@ -42,15 +43,40 @@ public class CircleSingleList {
         }
     }
 
+
     //根据用户的输入，计算出小孩的出圈顺序
     public void countBoy(int startNo,int countNum,int nums){
         if (first == null || startNo < 1 ||startNo >nums){
             System.out.println("参数输入错误");
             return;
         }
+        Boy helper = first;
+        while (true){
+            if (helper.getNext() == first){
+                break;
+            }
+            helper = helper.getNext();
+        }
+        for (int i = 0; i < startNo - 1; i++) {
+            first = first.getNext();
+            helper = helper.getNext();
+        }
 
 
-
+        //小孩开始报数，first和helper都向后移动counNum-1位，然后出圈
+        while (true){
+            if (helper == first){
+                break;
+            }
+            for (int i = 0; i < countNum - 1; i++) {
+                first = first.getNext();
+                helper = helper.getNext();
+            }
+            System.out.println("出圈的小孩是"+first.getNo()+".");
+            first = first.getNext();
+            helper.setNext(first);
+        }
+        System.out.println("留在圈中的是"+first.getNo()+".");
     }
 
 

@@ -4,6 +4,7 @@ import com.linkedlist.SingleLinkedList.HeroNode;
 
 public class DoubleLinkedListTest {
     public static void main(String[] args) {
+        //添加节点
        HeroNode2 hero4 = new HeroNode2(1,"宋江","及时雨");
        HeroNode2 hero2 = new HeroNode2(2,"卢俊义","玉麒麟");
        HeroNode2 hero1 = new HeroNode2(3,"吴用","智多星");
@@ -16,6 +17,11 @@ public class DoubleLinkedListTest {
         doubleLinkedList.add(hero2);
         doubleLinkedList.add(hero3);
         doubleLinkedList.add(hero4);
+        doubleLinkedList.list();
+
+        //删除之后的
+        System.out.println("删除之后的");
+        doubleLinkedList.del(3);
 
         doubleLinkedList.list();
     }
